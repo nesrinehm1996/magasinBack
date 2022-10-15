@@ -13,7 +13,7 @@ pipeline {
                echo 'Pulling...';
                 git branch: 'stockBack', 
                 url: 'https://github.com/nesrinehm1996/magasinBack'
-                credentialsId: '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'; 
+                credentialsId: '8ed45dcf-662c-4b7a-b716-2c5b1b4b111f'; 
                 
             }
         }
