@@ -27,8 +27,7 @@ public class CategorieProduitController {
 	@GetMapping("/retrieve-all-categorieProduit")
 	@ResponseBody
 	public List<CategorieProduit> getCategorieProduit() {
-		return categorieProduitService.retrieveAllCategorieProduits();
-		 
+		return categorieProduitService.retrieveAllCategorieProduits(); 
 	}
 
 	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-categorieProduit/8
@@ -49,9 +48,5 @@ public class CategorieProduitController {
 	@ResponseBody
 	public void removeCategorieProduit(@PathVariable("categorieProduit-id") Long categorieProduitId) {
 		categorieProduitService.deleteCategorieProduit(categorieProduitId);
-	}
-
-	
-
-	
+	}	
 }
