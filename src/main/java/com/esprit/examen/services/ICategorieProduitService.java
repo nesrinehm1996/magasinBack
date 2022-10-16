@@ -13,8 +13,6 @@ public interface ICategorieProduitService {
 
 	void deleteCategorieProduit(Long id);
 
-	CategorieProduit updateCategorieProduit(CategorieProduit cp);
-
 	CategorieProduit retrieveCategorieProduit(Long id);
 
 }
