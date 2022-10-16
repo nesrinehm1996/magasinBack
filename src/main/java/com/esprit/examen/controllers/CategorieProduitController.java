@@ -53,12 +53,7 @@ public class CategorieProduitController {
 		categorieProduitService.deleteCategorieProduit(categorieProduitId);
 	}
 
-	// http://localhost:8089/SpringMVC/categorieProduit/modify-categorieProduit
-	@PutMapping("/modify-categorieProduit")
-	@ResponseBody
-	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit cp) {
-		return categorieProduitService.updateCategorieProduit(cp);
-	}
+	
 
 	
 }
