@@ -62,14 +62,12 @@ public class FournisseurServiceImpl implements IFournisseurService {
 	@Override
 	public void deleteFournisseur(Long fournisseurId) {
 		fournisseurRepository.deleteById(fournisseurId);
-
 	}
 
 	@Override
 	public Fournisseur retrieveFournisseur(Long fournisseurId) {
-
-		Fournisseur fournisseur = fournisseurRepository.findById(fournisseurId).orElse(new Fournisseur());
-		return fournisseur;
+		return fournisseurRepository.findById(fournisseurId).orElse(null);
+		
 	}
 
 	@Override
@@ -78,10 +76,6 @@ public class FournisseurServiceImpl implements IFournisseurService {
 		SecteurActivite secteurActivite = secteurActiviteRepository.findById(idSecteurActivite).orElse(null);
         fournisseur.getSecteurActivites().add(secteurActivite);
         fournisseurRepository.save(fournisseur);
-		
-		
 	}
-
-	
 
 }
