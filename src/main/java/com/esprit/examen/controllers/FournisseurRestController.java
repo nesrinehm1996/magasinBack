@@ -44,8 +44,8 @@ public class FournisseurRestController {
 	@PostMapping("/add-fournisseur")
 	@ResponseBody
 	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
-		Fournisseur fournisseur = fournisseurService.addFournisseur(f);
-		return fournisseur;
+		return fournisseurService.addFournisseur(f);
+		 
 	}
 
 	// http://localhost:8089/SpringMVC/fournisseur/remove-fournisseur/{fournisseur-id}
@@ -58,8 +58,8 @@ public class FournisseurRestController {
 	// http://localhost:8089/SpringMVC/fournisseur/modify-fournisseur
 	@PutMapping("/modify-fournisseur")
 	@ResponseBody
-	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseur) {
-		return fournisseurService.updateFournisseur(fournisseur);
+	public Fournisseur modifyFournisseur(@RequestBody Fournisseur f) {
+		return fournisseurService.updateFournisseur(f);
 	}
 
 	// http://localhost:8089/SpringMVC/fournisseur/assignSecteurActiviteToFournisseur/1/5
