@@ -50,13 +50,7 @@ pipeline {
              }
                 
             }
-        stage("Publish to Nexus"){
-            steps{
-                nexusPublisher nexusInstanceId: 'Nexus-Mac',
-                nexusRepositoryId: 'pipeline-demo'          
-                }
-                
-            }
+       
    
        
     }
