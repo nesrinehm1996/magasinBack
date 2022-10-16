@@ -20,9 +20,9 @@ public class CategorieProduitServiceImpl implements ICategorieProduitService {
 	}
 
 	@Override
-	public CategorieProduit addCategorieProduit(CategorieProduit cp) {
-		categorieProduitRepository.save(cp);
-		return cp;
+	public CategorieProduit addCategorieProduit(CategorieProduit c) {
+		categorieProduitRepository.save(c);
+		return c;
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class CategorieProduitServiceImpl implements ICategorieProduitService {
 
 	@Override
 	public CategorieProduit retrieveCategorieProduit(Long id) {
-		CategorieProduit categorieProduit = categorieProduitRepository.findById(id).orElse(null);
+		CategorieProduit categorieProduit = categorieProduitRepository.findById(id).orElse(new CategorieProduit());
 		return categorieProduit;
 	}
 
