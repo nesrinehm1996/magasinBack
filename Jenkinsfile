@@ -17,14 +17,6 @@ pipeline {
                 }
                 
             }
-         stage("MVN COMPILE"){
-            steps{
-              
-                sh 'mvn clean compile'
-                             
-                }
-                
-            }
         stage("MVN CLEAN"){
             steps{
               
