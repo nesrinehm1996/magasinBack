@@ -2,11 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
         stage("git pull"){
             steps{
               
@@ -50,6 +45,13 @@ pipeline {
              }
                 
             }
+        stage('nexus deploy') {
+        steps{
+            sh'mvn deploy  '
+           
+        }
+
+    }
        
    
        
