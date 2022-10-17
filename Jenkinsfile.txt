@@ -6,7 +6,7 @@ pipeline {
             steps{
               
                 git branch: 'Fournisseur', 
-                credentialsId: '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', 
+                credentialsId: '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', 
                 url: 'https://github.com/nesrinehm1996/magasinBack.git'
                     
                 }
