@@ -40,15 +40,15 @@ pipeline {
             }
          }
          
-        stage('SonarQube analysis') {
+   //     stage('SonarQube analysis') {
 
-        steps{
-        withSonarQubeEnv('sonarserver') { 
+     //   steps{
+    //    withSonarQubeEnv('sonarserver') { 
        
-        sh "mvn sonar:sonar"
-    }
-        }
-        }
+     //   sh "mvn sonar:sonar"
+  //  }
+     //   }
+      //  }
         stage('nexus deploy') {
         steps{
             sh 'mvn deploy'
