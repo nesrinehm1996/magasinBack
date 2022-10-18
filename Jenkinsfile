@@ -46,7 +46,7 @@ pipeline {
             steps{
             withSonarQubeEnv('sonarqube-8.9.7') {  
                 sh 'mvn sonar:sonar'
-                sh '-Dmaven.test.failure.ignore=true'
+                sh 'mvn test -Dmaven.test.failure.ignore=true'
                              
                 }
              }
