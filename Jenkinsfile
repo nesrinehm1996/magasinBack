@@ -5,7 +5,7 @@ pipeline {
         stage("git pull"){
             steps{
               
-                git branch: ' reglementBack', 
+                git branch: 'reglementBack', 
                 credentialsId: '119d27c5-ec0b-44fb-882f-0735a2890bd1', 
                 url: 'https://github.com/nesrinehm1996/magasinBack.git'
                     
