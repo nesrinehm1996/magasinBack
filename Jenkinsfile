@@ -6,7 +6,7 @@ pipeline {
             steps{
               
                 git branch: ' reglementBack', 
-                credentialsId: '77438253-b979-4be6-89a3-8924755556c7', 
+                credentialsId: '119d27c5-ec0b-44fb-882f-0735a2890bd1', 
                 url: 'https://github.com/nesrinehm1996/magasinBack.git'
                     
                 }
