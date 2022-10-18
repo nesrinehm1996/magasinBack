@@ -40,19 +40,18 @@ pipeline {
             }
          }
          
-    stage("SonarQube analysis"){
-            steps{
-            withSonarQubeEnv('sonarqube-8.9.7') {  
-                sh 'mvn sonar:sonar'
-                sh 'mvn test -Dmaven.test.failure.ignore=true'
-                             
-                }
-             }
-                
-            }
-     
-     
-     
-     
+        stage('SonarQube analysis') {
+
+        steps{
+        withSonarQubeEnv('sonarserver') { 
+       
+        sh "mvn sonar:sonar"
+    }
+        }
+        }
+        
+           
+            
 }
-  }
+
+}
