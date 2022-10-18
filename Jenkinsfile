@@ -40,26 +40,19 @@ pipeline {
             }
          }
          
-     stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
-        steps{
-        withSonarQubeEnv('sonarserver') { 
-        // If you have configured more than one global server connection, you can specify its name
-//      sh "${scannerHome}/bin/sonar-scanner"
-        sh "mvn sonar:sonar"
-    }
-        }
-        }
-  
-
-  
-
-
-        
-  
-        
-            
-            
-
-
+    stage("SonarQube analysis"){
+            steps{
+            withSonarQubeEnv('sonarqube-8.9.7') {  
+                sh 'mvn sonar:sonar'
+                sh 'mvn test -Dmaven.test.failure.ignore=true'
+                             
+                }
+             }
+                
+            }
+     
+     
+     
+     
 }
+  }
