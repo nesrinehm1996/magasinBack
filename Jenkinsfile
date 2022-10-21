@@ -80,12 +80,7 @@ jacoco()
     }       
         
         
-     //    stage('Build docker image'){
-       //     steps{
-         //       script{
-           //         sh 'docker build -t nesrinehm1996/tpAchatProject-1.0-SNAPSHOT .'
-             //   }
-            //}
+        
              
              
           stage('Login') {
@@ -95,12 +90,7 @@ jacoco()
 			}
 		}
 
-	//	stage('Push') {
-
-		//	steps {
-			//	sh 'docker push thetips4you/nodeapp_test:latest'
-			//}
-		//}
+	
              
         }
 }
