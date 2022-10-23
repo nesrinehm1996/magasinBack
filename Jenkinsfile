@@ -11,7 +11,7 @@ environment {
               
                 git branch: 'reglementBack', 
                 credentialsId: '119d27c5-ec0b-44fb-882f-0735a2890bd1', 
-                url: 'https://github.com/nesrinehm1996/magasinBack.git'
+                url: 'https://github.com/nesrinehm1996/magasinback.git'
                     
                 }
                 
@@ -64,7 +64,7 @@ environment {
       stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t aminemasseoudi/magasinBack:latest .'
+				sh 'docker build -t aminemasseoudi/magasinback:latest .'
 			}
 		}
         
