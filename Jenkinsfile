@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+ 
+environment {
+		DOCKERHUB_CREDENTIALS=credentials('d2019489-e71a-40bd-b1e9-8639d5298a74')
+	}
+    
     stages{
         stage("git pull"){
             steps{
@@ -57,8 +61,36 @@ pipeline {
 
     }
         
-           
+      stage('Docker Build') {
+
+			steps {
+				sh 'docker build -t aminemasseoudi/magasinBack:latest .'
+			}
+		}
+        
+       
+		stage('Docker Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		} 
+        
+        
+        	stage('Push') {
+
+			steps {
+				sh 'docker push aminemasseoudi/magasinBack:latest'
+			}
+		}
+	
+          
             
 }
+    post {
+		always {
+			sh 'docker logout'
+		}
+	}
 
 }
