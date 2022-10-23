@@ -1,4 +1,4 @@
 FROM openjdk:11
+COPY target/*.jar /
 EXPOSE 8085
-ADD target/Spring-boot-docker.jar Spring-boot-docker.jar
-ENTRYPOINT ["java", "-jar","/Spring-boot-docker.jar"]
+ENTRYPOINT ["java", "-jar","/tpAchatProject-1.0.jar"]
