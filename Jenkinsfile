@@ -64,7 +64,7 @@ environment {
       stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t aminemasseoudi/magasinback:latest .'
+				sh 'docker build -t aminemasseoudi/magasinback .'
 			}
 		}
         
@@ -80,7 +80,7 @@ environment {
         	stage('Push') {
 
 			steps {
-				sh 'docker push aminemasseoudi/magasinBack:latest'
+				sh 'docker push aminemasseoudi/magasinback'
 			}
 		}
 	
