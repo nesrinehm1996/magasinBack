@@ -44,22 +44,22 @@ environment {
             }
          }
          
-       stage('SonarQube analysis') {
+   //    stage('SonarQube analysis') {
 
-        steps{
-       withSonarQubeEnv('sonarserver') { 
+      //  steps{
+      // withSonarQubeEnv('sonarserver') { 
        
-        sh "mvn sonar:sonar"
-    }
-       }
-        }
-        stage('nexus deploy') {
-        steps{
-            sh 'mvn deploy'
+      //  sh "mvn sonar:sonar"
+  //  }
+      // }
+      //  }
+      //  stage('nexus deploy') {
+     //   steps{
+         //   sh 'mvn deploy'
            
-        }
+      //  }
 
-    }
+  //  }
         
       stage('Docker Build') {
 
