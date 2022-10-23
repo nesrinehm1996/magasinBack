@@ -64,7 +64,7 @@ environment {
       stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t aminemasseoudi/reglement-back0 .'
+				sh 'docker build -t aminemasseoudi/tpAchatProject-1.0 .'
 			}
 		}
         
