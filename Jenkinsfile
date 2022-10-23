@@ -64,7 +64,7 @@ environment {
       stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t aminemasseoudi/reglementback .'
+				sh 'docker build -t aminemasseoudi/reglement-back0 .'
 			}
 		}
         
@@ -80,7 +80,7 @@ environment {
         	stage('Push') {
 
 			steps {
-				sh 'docker push aminemasseoudi/reglementback'
+				sh 'docker push aminemasseoudi/reglement-back0'
 			}
 		}
 	
