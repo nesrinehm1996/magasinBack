@@ -21,7 +21,7 @@ stage("git pull"){
  stage('Build docker image'){
             steps{
                 script{
-                    sh 'sudo -S root docker build -t dock .'
+                    sh '-S root docker build -t dock .'
                 }
             }
         
