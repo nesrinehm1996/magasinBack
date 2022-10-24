@@ -79,7 +79,7 @@ environment {
 	        stage('Docker Compose'){
             steps{
                 script{
-                    sh 'docker-compose up '
+                    sh 'docker-compose up -d'
                 }
             }
        
