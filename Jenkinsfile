@@ -18,7 +18,7 @@ pipeline {
             }
          stage("Building image") {
             steps {
-                sh 'docker build -t nourhengh01/achat-project:1.0.0 .'
+                sh 'sudo docker build -t nourhengh01/achat-project:1.0.0 .'
             }
         }
         stage("Login dokerHub") {
