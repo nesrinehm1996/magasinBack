@@ -72,5 +72,13 @@ steps{
 sh "docker rmi $registry:$BUILD_NUMBER"
 }
 }
+                    stage('deploy docker-compose'){
+            steps{
+                script{
+                    sh 'docker-compose up -d'
+                }
+            }
+       
+        }
 }
 }
