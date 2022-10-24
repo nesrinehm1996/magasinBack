@@ -18,13 +18,14 @@ stage("git pull"){
                 }
                 
             }
-stage('Building our image') {
-steps{
-script {
-dockerImage = docker.build registry + ":$BUILD_NUMBER"
-}
-}
-}
+ stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t dock .'
+                }
+            }
+        
+           }
 stage('Deploy our image') {
 steps{
 script {
