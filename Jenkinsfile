@@ -26,15 +26,17 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
 }
 }
-stage('Deploy our image') {
-steps{
-script {
-docker.withRegistry( 'first', registryCredential ) {
-dockerImage.push()
-}
-}
-}
-}
+tage ('pushing Image'){
+            steps{
+                script{
+                    sh 'docker login -u "salim.berrima@esprit.tn" -p "citycity008" docker.io'
+                    sh 'docker tag dock:latest salimberrima/dock:latest'
+                    sh ' docker push salimberrima/dock:latest'
+                }
+            }
+        }
+
+
 stage('Cleaning up') {
 steps{
 sh "docker rmi $registry:$BUILD_NUMBER"
