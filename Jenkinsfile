@@ -26,7 +26,7 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
 }
 }
-tage ('pushing Image'){
+stage ('pushing Image'){
             steps{
                 script{
                     sh 'docker login -u "salim.berrima@esprit.tn" -p "citycity008" docker.io'
