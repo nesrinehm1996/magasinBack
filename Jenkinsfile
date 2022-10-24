@@ -1,57 +1,36 @@
 pipeline {
-    agent any
-
-    stages{
-        stage("git pull"){
-            steps{
-              
-                git branch: 'Fournisseur', 
-                credentialsId: '14', 
-                url: 'https://github.com/nesrinehm1996/magasinBack.git'
-                    
-                }
-                
-            }
-            
-        stage('MVN COMPILE') {
-                steps {
-                sh 'mvn clean compile'
-                    
-                }
-                
-            }
-        stage('clean'){
-                steps{
-                sh 'mvn clean package'
-                    
-                }
-                
-            }  
-        stage('MVN TEST') {
-                steps {
-                sh 'mvn clean test'
-                    
-                }
-                
-            }  
-        stage('build'){
-            steps{
-                sh 'mvn install package'
-            }
-         }
-         
-        stage('SonarQube analysis') {
-
-        steps{
-        withSonarQubeEnv('sonarserver') { 
-       
-        sh "mvn sonar:sonar"
-    }
-        }
-        }
-        
-           
-            
+environment {
+registry = "salimberrima"
+registryCredential = 'fd2b5514-02a3-465e-b20c-cee88537a313'
+dockerImage = ''
 }
-
+agent any
+stages {
+stage('Cloning our Git') {
+steps {
+git 'https://github.com/nesrinehm1996/magasinBack.git'
+}
+}
+stage('Building our image') {
+steps{
+script {
+dockerImage = docker.build registry + ":$BUILD_NUMBER"
+}
+}
+}
+stage('Deploy our image') {
+steps{
+script {
+docker.withRegistry( '', registryCredential ) {
+dockerImage.push()
+}
+}
+}
+}
+stage('Cleaning up') {
+steps{
+sh "docker rmi $registry:$BUILD_NUMBER"
+}
+}
+}
 }
