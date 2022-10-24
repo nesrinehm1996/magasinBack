@@ -8,11 +8,16 @@ agent any
 stages {
 
 
-stage('Cloning our Git') {
-steps {
-git 'https://github.com/nesrinehm1996/magasinBack.git'
-}
-}
+stage("git pull"){
+            steps{
+              
+                git branch: 'Fournisseur', 
+                credentialsId: '73bd4b1f-f1e8-48a9-93b3-3c8a2d195c60', 
+                url: 'https://github.com/nesrinehm1996/magasinBack.git'
+                  
+                }
+                
+            }
 stage('Building our image') {
 steps{
 script {
