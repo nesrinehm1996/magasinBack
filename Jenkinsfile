@@ -2,7 +2,9 @@ pipeline {
     agent any
     
     environment {
-        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+        registry = "nourhengh01/achat-project"
+        registryCredential = 'dockerhub'
+        dockerImage = ''
     }
 
     stages {
@@ -18,19 +20,21 @@ pipeline {
             }
          stage("Building image") {
             steps {
-                sh 'sudo docker build -t nourhengh01/achat-project:1.0.0 .'
+            script {
+            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+            }
             }
         }
-        stage("Login dokerHub") {
-            steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW |sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
-            }
+        stage('Deploy our image') {
+        steps{
+        script {
+        docker.withRegistry( '', registryCredential ) {
+        dockerImage.push()
         }
-        stage("Push") {
-            steps {
-                sh 'sudo docker push nourhengh01/achat-project:1.0.0'
-            }
         }
+        }
+        }
+        
        
     }
 } 
