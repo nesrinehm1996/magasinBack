@@ -8,7 +8,7 @@ agent any
 stages {
 
 
-stage("git pull"){
+stage("Git clone"){
             steps{
               
                 git branch: 'Fournisseur', 
@@ -18,7 +18,7 @@ stage("git pull"){
                 }
                 
             }
- stage('Building our image') {
+ stage('Build Dockerfile') {
 steps{
             
 script {
@@ -26,7 +26,7 @@ dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
 }
 }
-stage('Deploy our image') {
+stage('Pushing image ') {
 steps{
 script {
 docker.withRegistry( '', registryCredential ) {
