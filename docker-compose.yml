@@ -16,7 +16,7 @@ services:
     depends_on:
       - mysqldb
     image: salimberrima/projet:$BUILD_NUMBER
-    restart: on-failure
+    restart: unless-stopped
     env_file: ./.env
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
