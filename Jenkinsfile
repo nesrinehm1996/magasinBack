@@ -2,9 +2,7 @@ pipeline {
     agent any
     
     environment {
-        registry = "nourhengh01/achat-project"
-        registryCredential = 'dockerhub'
-        dockerImage = ''
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
 
     stages {
@@ -18,23 +16,70 @@ pipeline {
                 }
                 
             }
-         stage("Building image") {
+        stage("MVN CLEAN"){
+            steps{
+              
+                sh 'mvn clean package'
+                             
+                }
+                
+            }
+        stage("MVN TEST"){
+            steps{
+              
+                sh 'mvn clean test'
+                             
+                }
+                
+            }
+        stage("build"){
+            steps{
+              
+                sh 'mvn install package'
+                             
+                }
+                
+            }
+        stage("UNIT TEST") {
             steps {
-            script {
-            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                echo "TESTING project"
+                sh 'mvn test -Dmaven.test.failure.ignore=true '
             }
+        }
+    //    stage("SonarQube analysis"){
+       //     steps{
+      //      withSonarQubeEnv('sonarqube-8.9.7') {  
+       //         sh 'mvn sonar:sonar'
+        //        sh 'mvn test -Dmaven.test.failure.ignore=true'
+                             
+         //       }
+          //   }
+                
+          //  }
+      //  stage('nexus deploy') {
+      //  steps{
+        //    sh'mvn deploy  '
+           
+       //    }
+
+     //   }
+        stage("Building image") {
+            steps {
+                sh 'docker build -t nourhengh01/achat-project .'
             }
         }
-        stage('Deploy our image') {
-        steps{
-        script {
-        docker.withRegistry( '', registryCredential ) {
-        dockerImage.push()
-        }
-        }
-        }
-        }
-        
+        stage('Docker Login') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		} 
+        stage('Push') {
+
+			steps {
+				sh 'docker push nourhengh01/achat-project'
+			}
+		}
        
     }
 } 
