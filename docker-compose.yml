@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: salimberrima/projet:tagname
+    image: salimberrima/projet:$BUILD_NUMBER
     restart: on-failure
     env_file: ./.env
     ports:
