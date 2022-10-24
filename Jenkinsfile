@@ -20,7 +20,7 @@ stage("git pull"){
             }
  stage('Building our image') {
 steps{
-            sh 'su - salim'
+            sh 'su - root'
 script {
 dockerImage = docker.build registry + ":$BUILD_NUMBER"
 }
