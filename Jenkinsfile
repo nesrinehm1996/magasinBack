@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+    }
 
     stages {
         stage("git pull"){
@@ -56,9 +60,24 @@ pipeline {
         steps{
             sh'mvn deploy  '
            
-        }
+             }
 
-    }
+        }
+         stage("Building image") {
+            steps {
+                sh 'sudo docker build -t nourhengh01/achatProject:1.0.0 .'
+            }
+        }
+        stage("Login dokerHub") {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW |sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+            }
+        }
+        stage("Push") {
+            steps {
+                sh 'sudo docker push nourhengh01/achatProject:1.0.0'
+            }
+        }
        
     }
 } 
