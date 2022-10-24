@@ -65,7 +65,7 @@ pipeline {
         }
          stage("Building image") {
             steps {
-                sh 'docker build -t achatProject:1.0.0 .'
+                sh 'docker build -t nourhengh01/achatProject:1.0.0 .'
             }
         }
         stage("Login dokerHub") {
