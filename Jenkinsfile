@@ -80,6 +80,14 @@ pipeline {
 				sh 'docker push nourhengh01/achat-project'
 			}
 	}
+	stage('deploy docker-compose'){
+            steps{
+                script{
+                    sh 'docker-compose up -d'
+                }
+            }
+       
+        }    
 	
        
     }
