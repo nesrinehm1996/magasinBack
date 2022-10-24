@@ -79,7 +79,12 @@ pipeline {
 			steps {
 				sh 'docker push nourhengh01/achat-project'
 			}
+	}
+	post {
+		always {
+			sh 'docker logout'
 		}
+	}
        
     }
 } 
