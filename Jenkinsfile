@@ -79,7 +79,7 @@ pipeline {
         stage('pushing Image'){
         steps{
              script{
-           sh 'docker login -u "nesrinehm1996" -p "Nesrine@1996" docker.io
+           sh 'docker login -u "nesrinehm1996" -p "Nesrine@1996" docker.io'
           sh 'docker tag tpachatproject:latest nesrinehm1996/tpachatproject:latest'
            sh ' docker push nesrinehm1996/tpachatproject:latest'
 }
