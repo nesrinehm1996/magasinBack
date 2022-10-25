@@ -63,23 +63,7 @@ pipeline {
        //    }
 
      //   }
-        stage("Building image") {
-            steps {
-                sh 'docker build -t nourhengh01/achat-project .'
-            }
-        }
-        stage('Docker Login') {
-
-			steps {
-				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW docker.io'
-			}
-		} 
-        stage('Push') {
-
-			steps {
-				sh 'docker push nourhengh01/achat-project'
-			}
-	}
+        
 	stage('deploy docker-compose'){
             steps{
                 script{
