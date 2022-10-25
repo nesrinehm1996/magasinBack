@@ -5,9 +5,9 @@ pipeline {
         stage("git pull") 
         { 
             steps{ 
-               git branch: 'products', 
-               credentialsId: 'DhouhaAR', 
-               url: 'https://github.com/chedlynacef/magasin-backend.git'
+                git branch: 'produitBack', 
+                credentialsId: '8cca21f7-732f-4451-8b06-512b72565d25', 
+                url: 'https://github.com/nesrinehm1996/magasinBack.git'
                  
             
         }
@@ -79,9 +79,9 @@ pipeline {
         stage('pushing Image'){
         steps{
              script{
-          sh 'docker login -u "dhouha20" -p "94257005Dhouha" docker.io'
-          sh 'docker tag tpachatproject:latest dhouha20/tpachatproject:latest'
-           sh ' docker push dhouha20/tpachatproject:latest'
+           sh 'docker login -u "nesrinehm1996" -p "Nesrine@1996" docker.io
+          sh 'docker tag tpachatproject:latest nesrinehm1996/tpachatproject:latest'
+           sh ' docker push nesrinehm1996/tpachatproject:latest'
 }
 }
 }
