@@ -10,7 +10,7 @@ pipeline {
             steps{
               
                 git branch: 'stockBack', 
-                credentialsId: '8ed45dcf-662c-4b7a-b716-2c5b1b4b111f', 
+                credentialsId: 'aaa0f99c-1c15-4fce-b119-222d2b7d1a2a', 
                 url: 'https://github.com/nesrinehm1996/magasinBack.git'
                     
                 }
