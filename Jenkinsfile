@@ -16,14 +16,14 @@ pipeline {
                 }
                 
             }
-        stage("MVN CLEAN"){
-            steps{
+      //  stage("MVN CLEAN"){
+     //       steps{
               
-                sh 'mvn clean package'
+           //     sh 'mvn clean package'
                              
-                }
+           //     }
                 
-            }
+         //   }
         stage("MVN TEST"){
             steps{
               
