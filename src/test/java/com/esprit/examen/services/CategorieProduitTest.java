@@ -32,6 +32,12 @@ public class CategorieProduitTest {
 		
 	}
 	
-	 
+	@Test
+	public void delete ( ) {
+		
+		
+	}
+	
+	
 		
 }
