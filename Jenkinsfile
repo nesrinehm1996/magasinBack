@@ -67,7 +67,7 @@ pipeline{
         	stage('Push') {
 
 			steps {
-				sh 'docker push aminemasseoudi/tpachatproject'
+				sh 'docker push raed12345/tpachatproject'
 			}
 		}
 
