@@ -39,6 +39,11 @@ pipeline{
                 }
 
             }
+	     stage('build'){
+            steps{
+                sh 'mvn install package'
+            }
+         }
          stage('Docker Build') {
 
 			steps {
@@ -54,14 +59,7 @@ pipeline{
 			}
 		} 
 	    
-	        stage('Docker Compose'){
-            steps{
-                script{
-                    sh 'docker-compose up -d'
-                }
-            }
-       
-        }
+	      
         
         
         	stage('Push') {
@@ -71,13 +69,16 @@ pipeline{
 			}
 		}
 
-
-
-       stage('build'){
+              stage('Docker Compose'){
             steps{
-                sh 'mvn install package'
+                script{
+                    sh 'docker-compose up -d'
+                }
             }
-         }
+       
+        }
+
+      
        
 
 
