@@ -42,7 +42,7 @@ pipeline{
          stage('Docker Build') {
 
 			steps {
-				sh 'docker build -t raed12345/tpachatproject .'
+				sh 'docker build -t raed12345/tpAchatproject .'
 			}
 		}
         
@@ -67,7 +67,7 @@ pipeline{
         	stage('Push') {
 
 			steps {
-				sh 'docker push raed12345/tpachatproject'
+				sh 'docker push raed12345/tpAchatproject'
 			}
 		}
 
