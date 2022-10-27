@@ -15,7 +15,7 @@ services:
 
 
   spring_app:
-    image: ghadachebbi/achat
+    image: ghassenmoallaa/categorieproduit
     container_name: achatspring
     restart: on-failure
     environment:
