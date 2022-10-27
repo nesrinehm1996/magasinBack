@@ -1,25 +1,26 @@
 version: "3"
-services: 
-  springboot-app:
-   # container_name: spring-app
-    image: ghassenmoallaa/categorieproduit
-    restart: always
-    build: .
-    ports:
-      - 8000-8999:8080 
-    environment:
-      MYSQL_HOST: mysqldb
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_PORT: 3306
-  mysqldb: 
+
+services:
+  mysqldb:
     container_name: mysqldb
-    image: mysql
-    volumes:
-      -  /home/user/Desktop/db:/var/lib/mysql
-    ports: 
-     - 3307:3306   
+    image: mysql/mysql-server:8.0
+    restart: unless-stopped
+    ports:
+     - 3307:3307
     environment:
-      MYSQL_DATABASE: test
-      MYSQL_ROOT_PASSWORD: root
-        
+     - MYSQL_ROOT_PASSWORD=pass
+     - MYSQL_DATABASE=achatdb
+     - MYSQL_USER=root
+     - MYSQL_PASSWORD=pass
+
+
+  spring_app:
+    image: ghassenmoallaa/categorieproduit
+    container_name: achatspring
+    restart: on-failure
+    environment:
+     - spring.datasource.url=jdbc:mysql://mysqldb:3306/achatdb?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    ports:
+     - 8089:8089
+    depends_on:
+     - mysqldb
