@@ -4,21 +4,18 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
-		
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>tpAchatProject</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>tpAchatProject</name>
 	<description>tpAchatProject</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
-		 <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
 	</properties>
 	<dependencies>
 		<dependency>
@@ -70,35 +67,8 @@
 			<version>3.0.0</version>
 		</dependency>
 		<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-core</artifactId>
-    <version>2.21.0</version>
-</dependency>
-
-<dependency>
-    <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter-engine</artifactId>
-    <scope>test</scope>
-</dependency>
-
-<dependency>
-<groupId>junit</groupId>
-<artifactId>junit</artifactId>
-<scope>test</scope>
-</dependency>
-		
-		<dependency>
-
-<groupId>org.projectlombok</groupId>
-<artifactId>lombok</artifactId>
-</dependency>
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		<dependency> 
-		    <groupId>org.mockito</groupId> 
-		    <artifactId>mockito-core</artifactId> 
 		</dependency>
 	</dependencies>
 
