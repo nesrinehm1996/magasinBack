@@ -15,7 +15,7 @@ services:
   app:
     depends_on:
       - mysqldb
-    image: nourhengh01/achat-project:latest
+    image: nourhengh01/achat-project
     restart: on-failure
     env_file: ./.env
     ports:
