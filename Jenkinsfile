@@ -9,7 +9,7 @@ pipeline {
         stage("git pull"){
             steps{
               
-                git branch: 'stockBack', 
+                git branch: 'Stock', 
                 credentialsId: 'aaa0f99c-1c15-4fce-b119-222d2b7d1a2a', 
                 url: 'https://github.com/nesrinehm1996/magasinBack.git'
                     
