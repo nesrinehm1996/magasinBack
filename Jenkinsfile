@@ -58,7 +58,7 @@ pipeline {
     }
         }
         }
-        */
+     
        
 
         
@@ -69,6 +69,7 @@ pipeline {
            
         }
         }
+           */
          stage('Builidng image') {
         steps{
             sh 'docker build -t tpachatproject . '
