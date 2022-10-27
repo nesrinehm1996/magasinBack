@@ -3,6 +3,7 @@ package com.esprit.examen.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,12 +17,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Produit implements Serializable {
 
+	
 	/**
 	 * 
 	 */
@@ -45,6 +48,15 @@ public class Produit implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	private CategorieProduit categorieProduit;
+	
+	public Produit(String libelleProduit, float prix, String codeProduit) {
+		super();
+		this.libelleProduit = libelleProduit;
+		this.prix = prix;
+		this.codeProduit = codeProduit;
+		// TODO Auto-generated constructor stub
+	}
+	
 	
 
 
