@@ -76,6 +76,14 @@ environment {
 			}
 		} 
 	    
+	    
+	    	stage('Push') {
+
+			steps {
+				sh 'docker push aminemasseoudi/tpachatproject'
+			}
+		}
+	    
 	        stage('Docker Compose'){
             steps{
                 script{
@@ -86,12 +94,7 @@ environment {
         }
         
         
-        	stage('Push') {
-
-			steps {
-				sh 'docker push aminemasseoudi/tpachatproject'
-			}
-		}
+        
 	
           
             
